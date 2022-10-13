@@ -27,19 +27,15 @@ int main() {
 
     // [E.2a] Parsing data to elements that will go to classRosterArray
     for (int i = 0; i < currentStudents; i++) {
-
         //vector declare variable holder of parsed string
         vector <string> token;
-
         //stringstream class to read the input
         stringstream check(studentData[i]);
-
         //position of the delimiter in the string
         string part;
 
         //actual parsing between with comma as delimiter
-        while (getline(check, part, ','))
-        {
+        while (getline(check, part, ',')) {
             token.push_back(part);
         }
 
@@ -47,14 +43,11 @@ int main() {
         DegreeProgram deg;
         if (token[8] == "SECURITY") {
             deg = SECURITY;
-        }
-        else if (token[8] == "NETWORK") {
+        } else if (token[8] == "NETWORK") {
             deg = NETWORK;
-        }
-        else if (token[8] == "SOFTWARE") {
+        } else if (token[8] == "SOFTWARE") {
             deg = SOFTWARE;
-        }
-        else {
+        } else {
             deg = UNKNOWN;
         }
 
@@ -70,6 +63,7 @@ int main() {
     for (int i = 0; i < currentStudents; i++) {
         classRoster->printAverageDaysInCourse(classRoster->classRosterArray[i]->getStudentID());
     }
+    
     classRoster->printByDegreeProgram(SOFTWARE);
     classRoster->remove("A3");
     classRoster->printAll();
